@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actors index{% endblock %}
+
+{% block body %}
+    <h1>Actors index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Date_of_birth</th>
+                <th>Bio</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actor in actors %}
+            <tr>
+                <td>{{ actor.id }}</td>
+                <td>{{ actor.firstName }}</td>
+                <td>{{ actor.lastName }}</td>
+                <td>{{ actor.dateOfBirth ? actor.dateOfBirth|date('Y-m-d') : '' }}</td>
+                <td>{{ actor.bio }}</td>
+                <td>
+                    <a href="{{ path('actors_show', {'id': actor.id}) }}">show</a>
+                    <a href="{{ path('actors_edit', {'id': actor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('actors_new') }}">Create new</a>
+{% endblock %}
