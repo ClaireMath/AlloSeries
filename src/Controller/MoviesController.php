@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Movies;
 use App\Form\MoviesType;
 use App\Repository\MoviesRepository;
+use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,7 @@ class MoviesController extends AbstractController
     public function new(Request $request): Response
     {
         $movie = new Movies();
+        $movie->setCreatedAt(new DateTimeImmutable('now'));
         $form = $this->createForm(MoviesType::class, $movie);
         $form->handleRequest($request);
 

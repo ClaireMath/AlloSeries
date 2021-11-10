@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class MoviesType extends AbstractType
 {
@@ -18,8 +19,10 @@ class MoviesType extends AbstractType
             ->add('title')
             ->add('sumary')
             ->add('image')
-            ->add('release_year')
-            ->add('created_at')
+            ->add('release_year', DateType::class, array(
+                 'years' => range(date('Y')+2, date('Y')-50),
+               )
+            )
             ->add('actorss')
         ;
         $builder->add('actorss', EntityType::class, [
@@ -30,8 +33,8 @@ class MoviesType extends AbstractType
             'choice_label' => 'last_name',
 
             // used to render a select box, check boxes or radios
-            // 'multiple' => true,
-            // 'expanded' => true,
+            'multiple' => true,
+            'expanded' => true,
         ]);
         $builder->add('director', EntityType::class, [
             // looks for choices from this entity

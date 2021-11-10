@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Actors;
 use App\Form\ActorsType;
 use App\Repository\ActorsRepository;
+use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,7 @@ class ActorsController extends AbstractController
     public function new(Request $request): Response
     {
         $actor = new Actors();
+        $actor->setDateOfBirth(new DateTimeImmutable('now'));
         $form = $this->createForm(ActorsType::class, $actor);
         $form->handleRequest($request);
 

@@ -31,6 +31,7 @@ class DirectorController extends AbstractController
     public function new(Request $request): Response
     {
         $director = new Director();
+        $director->setCreatedAt(new DateTimeImmutable('now'));
         $form = $this->createForm(DirectorType::class, $director);
         $form->handleRequest($request);
 
