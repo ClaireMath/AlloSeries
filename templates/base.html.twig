@@ -15,7 +15,13 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <body style="height: 100%">
+    <body style="height: 100%; padding:30px;">
+    <div>
+        <a class="btn btn-info" href="{{ path('movies_index') }}">FILMS</a>
+        <a class="btn btn-info" href="{{ path('actors_index') }}">ACTEURS</a>
+        <a class="btn btn-info" href="{{ path('director_index') }}">REALISATEURS</a>
+
+    </div>
         {% block body %}{% endblock %}
     </body>
 </html>

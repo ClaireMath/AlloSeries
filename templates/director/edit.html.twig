@@ -3,11 +3,11 @@
 {% block title %}Edit Director{% endblock %}
 
 {% block body %}
-    <h1>Edit Director</h1>
+    <h1 style="text-align: center">Editer réalisateur</h1>
 
-    {{ include('director/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('director/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('director_index') }}">back to list</a>
+    <a class="btn btn-info" href="{{ path('director_index') }}">Retour à la liste</a>
 
     {{ include('director/_delete_form.html.twig') }}
 {% endblock %}

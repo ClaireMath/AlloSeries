@@ -3,7 +3,7 @@
 {% block title %}Actors{% endblock %}
 
 {% block body %}
-    <h1>Actors</h1>
+    <h1>Acteurs</h1>
 
     <table class="table">
         <tbody>
@@ -12,27 +12,27 @@
                 <td>{{ actor.id }}</td>
             </tr>
             <tr>
-                <th>First_name</th>
+                <th>Prénom</th>
                 <td>{{ actor.firstName }}</td>
             </tr>
             <tr>
-                <th>Last_name</th>
+                <th>Nom</th>
                 <td>{{ actor.lastName }}</td>
             </tr>
             <tr>
-                <th>Date_of_birth</th>
+                <th>Date de naissance</th>
                 <td>{{ actor.dateOfBirth ? actor.dateOfBirth|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Bio</th>
+                <th>Biographie</th>
                 <td>{{ actor.bio }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('actors_index') }}">back to list</a>
+    <a class="btn btn-info" href="{{ path('actors_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('actors_edit', {'id': actor.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('actors_edit', {'id': actor.id}) }}">Editer</a>
 
     {{ include('actors/_delete_form.html.twig') }}
 {% endblock %}

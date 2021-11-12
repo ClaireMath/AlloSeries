@@ -16,7 +16,7 @@
                 style=" text-align: center;">{{ actor.firstName }} {{ actor.lastName|upper }}</h3>
             <h5 class="card-text">Date de naissance : </h5>
             <p>{{ actor.dateOfBirth ? actor.dateOfBirth|date('d-m-Y') : '' }}</p>
-            <p class="card-text" style="text-align: justify; height: 180px;">{{ actor.bio }}</p>
+            <p class="card-text" style="text-align: justify; height: 250px;">{{ actor.bio }}</p>
             <div style="display: flex; flex-direction: row; justify-content: center;">
             <a href="{{ path('actors_show', {'id': actor.id}) }}" style="width:50px; " class="btn btn-info" >Voir</a>
             <a href="{{ path('actors_edit', {'id': actor.id}) }}" class="btn btn-info" style="margin-left: 30px">Modifier</a>

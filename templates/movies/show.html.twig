@@ -12,31 +12,29 @@
                 <td>{{ movie.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ movie.title }}</td>
             </tr>
             <tr>
-                <th>Sumary</th>
+                <th>Synopsis</th>
                 <td>{{ movie.sumary }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ movie.image }}</td>
+                <th>Affiche du film</th>
+                <td>
+                    <img style="width: 100px;" src="{{ movie.image }}" alt=""></td>
             </tr>
             <tr>
-                <th>Release_year</th>
+                <th>Année de sortie</th>
                 <td>{{ movie.releaseYear ? movie.releaseYear|date('Y-m-d') : '' }}</td>
             </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ movie.createdAt ? movie.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+
         </tbody>
     </table>
 
-    <a href="{{ path('movies_index') }}">back to list</a>
+    <a class="btn btn-info" href="{{ path('movies_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('movies_edit', {'id': movie.id}) }}">edit</a>
+    <a class="btn btn-info" href="{{ path('movies_edit', {'id': movie.id}) }}">Modifier</a>
 
     {{ include('movies/_delete_form.html.twig') }}
 {% endblock %}
