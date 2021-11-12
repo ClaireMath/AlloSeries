@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>Sumary</th>
+                <th>Summary</th>
                 <th>Image</th>
                 <th>Release_year</th>
 
@@ -24,7 +24,8 @@
                 <td>{{ movie.id }}</td>
                 <td>{{ movie.title }}</td>
                 <td>{{ movie.sumary }}</td>
-                <td>{{ movie.image }}</td>
+                <td>      <img src="{{ movie.image }}" class="card-img-top" alt="..."></td>
+
                 <td>{{ movie.releaseYear ? movie.releaseYear|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('movies_show', {'id': movie.id}) }}">show</a>
