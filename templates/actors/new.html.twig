@@ -3,9 +3,12 @@
 {% block title %}New Actors{% endblock %}
 
 {% block body %}
-    <h1>Create new Actors</h1>
+    <div class="card-body" style="padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="padding: 30px; text-align: center;">Create new Actors</h1>
 
     {{ include('actors/_form.html.twig') }}
 
-    <a href="{{ path('actors_index') }}">back to list</a>
+    <a class="btn btn-info" style="width: 160px;" href="{{ path('actors_index') }}">back to list</a>
+    </div>
 {% endblock %}
+

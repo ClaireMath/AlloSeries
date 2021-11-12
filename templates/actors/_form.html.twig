@@ -1,4 +1,7 @@
+<div class="card-body" style="display: flex; justify-content: center; align-items: center">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+        {{ form_widget(form) }}
+    <button class="btn btn-info" style="width: 160px; margin-bottom: 10px;">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+</div>

@@ -84,9 +84,17 @@ class DirectorController extends AbstractController
     public function delete(Request $request, Director $director): Response
     {
         if ($this->isCsrfTokenValid('delete'.$director->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($director);
-            $entityManager->flush();
+            try{
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($director);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('director_index', [], Response::HTTP_SEE_OTHER);
+            }catch(Exception $e){
+                echo($e);
+                return $this->redirectToRoute('director_index', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->redirectToRoute('director_index', [], Response::HTTP_SEE_OTHER);
