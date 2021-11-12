@@ -3,18 +3,45 @@
 {% block title %}Actors index{% endblock %}
 
 {% block body %}
-    <h1>Actors index</h1>
+
+    <h1>Acteurs</h1>
+    {% for actor in actors %}
+
+        <div style="padding: 30px; display: flex; flex-direction: column; justify-content: space-evenly; background-color: dodgerblue;">
+        <div class="card" style="width: 20rem; display: flex; flex-direction: row; justify-content: space-evenly; background-color: indianred">
+        {# <img src="{{ actor.image }}" class="card-img-top" alt="..."> #}
+        <div class="card-body d-flex flex-row justify-content-around" style="display: flex; flex-direction: column; justify-content: space-evenly; background-color: fuchsia;">
+            <h3 class="card-title"
+                style="background-color: greenyellow; text-align: center;">{{ actor.firstName }} {{ actor.lastName|upper }}</h3>
+            <h5 class="card-text">Date de naissance : </h5>
+            <p>{{ actor.dateOfBirth ? actor.dateOfBirth|date('d-m-Y') : '' }}</p>
+            <p class="card-text" style="text-align: justify;">{{ actor.bio }}</p>
+            <a href="{{ path('actors_show', {'id': actor.id}) }}" class="btn btn-info" style="margin-left: 30px">Voir</a>
+            <a href="{{ path('actors_edit', {'id': actor.id}) }}" class="btn btn-info" style="margin-left: 30px">Modifier</a>
+        </div>
+        </div>
+        </div>
+    {% else %}
+        <p>no records found</p>
+
+    {% endfor %}
+
+
+    <a href="{{ path('actors_new') }}" class="btn btn-info" style="margin: 30px;">Nouvel acteur</a>
+    </div>
+
+
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>First_name</th>
-                <th>Last_name</th>
-                <th>Date_of_birth</th>
-                <th>Bio</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>First_name</th>
+            <th>Last_name</th>
+            <th>Date_of_birth</th>
+            <th>Bio</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for actor in actors %}

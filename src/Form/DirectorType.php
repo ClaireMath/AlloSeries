@@ -6,6 +6,7 @@ use App\Entity\Director;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class DirectorType extends AbstractType
 {
@@ -14,7 +15,7 @@ class DirectorType extends AbstractType
         $builder
             ->add('first_name')
             ->add('last_name')
-            ->add('date_of_birth')
+            ->add('date_of_birth', BirthdayType::class)
             ->add('bio')
         ;
     }

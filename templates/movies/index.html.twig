@@ -13,8 +13,9 @@
                 <th>Sumary</th>
                 <th>Image</th>
                 <th>Release_year</th>
-                <th>Created_at</th>
-                <th>actions</th>
+
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -25,10 +26,10 @@
                 <td>{{ movie.sumary }}</td>
                 <td>{{ movie.image }}</td>
                 <td>{{ movie.releaseYear ? movie.releaseYear|date('Y-m-d') : '' }}</td>
-                <td>{{ movie.createdAt ? movie.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('movies_show', {'id': movie.id}) }}">show</a>
                     <a href="{{ path('movies_edit', {'id': movie.id}) }}">edit</a>
+                    <button type="button" class="btn btn-info">Info</button>
                 </td>
             </tr>
         {% else %}
